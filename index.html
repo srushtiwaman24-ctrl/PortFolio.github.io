@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srushti Waman | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #2e2c2a;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    header {
+      background: linear-gradient(90deg, #c8a2ff, #b57edc);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+    }
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #2e2c2a;
+      transform: scale(1.05);
+    }
+
+    /* About */
+    .about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 2rem;
+      background-color: #f8f5ff;
+    }
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 1100px;
+    }
+    .about-img img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      margin-right: 2rem;
+      border: 5px solid #b57edc;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(181, 126, 220, 0.4);
+    }
+    .about-text h2 {
+      color: #8a5bbf;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      max-width: 600px;
+      font-size: 1rem;
+      color: #2e2c2a;
+    }
+
+    /* Skills */
+    .skills {
+      padding: 5rem 2rem;
+      text-align: center;
+      background-color: #ffffff;
+    }
+    .skills h2 {
+      color: #8a5bbf;
+      font-size: 2rem;
+    }
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .skill-category {
+      background-color: #f8f5ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 320px;
+    }
+    .skill-category h3 {
+      color: #b57edc;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Projects */
+    .projects {
+      background-color: #f8f5ff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .projects h2 {
+      color: #8a5bbf;
+      font-size: 2rem;
+    }
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+    .project-item {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 12px rgba(181, 126, 220, 0.3);
+    }
+    .project-item h3 {
+      color: #8a5bbf;
+      margin-bottom: 0.6rem;
+    }
+    .project-item p {
+      color: #2e2c2a;
+      font-size: 0.95rem;
+    }
+
+    /* Contact */
+    .contact {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .contact h2 {
+      color: #8a5bbf;
+      font-size: 2rem;
+    }
+    .contact-container a {
+      color: #b57edc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-container a:hover {
+      color: #8a5bbf;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #b57edc;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Animation */
+    section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-img img {
+        margin: 0 0 1.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1>Srushti Waman</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-img">
+        <img src="https://i.postimg.cc/T12zX5HJ/Whats-App-Image-2025-10-30-at-00-06-17-6dacbfef.jpg">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I’m a third-year Electronics and Telecommunication Engineering student passionate about embedded systems, IoT, and robotics. I’ve interned at My Job Grow, where I gained hands-on experience in IoT and robotics. I’m eager to apply my skills and keep learning through real-world challenges.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3>Languages</h3>
+        <p>C, C++, Java, Embedded C, Python, Django, JavaScript</p>
+      </div>
+      <div class="skill-category">
+        <h3>Software</h3>
+        <p>Android Studio, Visual Studio, MATLAB, Keil, STM32CubeIDE, Arduino IDE</p>
+      </div>
+      <div class="skill-category">
+        <h3>Soft Skills</h3>
+        <p>Communication, Teamwork, Leadership, Creativity, Problem-Solving, Adaptability, Time Management, Positive Attitude</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-item">
+        <h3>Motion-Based Voice Announcement</h3>
+        <p>Automated system for patient monitoring and medicine reminders with health tracking and emergency alerts.</p>
+      </div>
+      <div class="project-item">
+        <h3>Smart Parking System</h3>
+        <p>IoT-based solution for real-time parking slot detection and efficient space management.</p>
+      </div>
+      <div class="project-item">
+        <h3>ClickCalc</h3>
+        <p>Microcontroller-based calculator performing arithmetic operations with LCD and keypad interface.</p>
+      </div>
+      <div class="project-item">
+        <h3>Smart Yoga Mat</h3>
+        <p>Yoga mat with sensors to detect posture accuracy and provide live feedback for safe exercise.</p>
+      </div>
+      <div class="project-item">
+        <h3>Medishelf</h3>
+        <p>IoT-powered medicine storage and reminder system ensuring timely alerts and environment monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <p>Email: <a href="mailto:srushti.waman24@pccoepune.org">srushti.waman24@pccoepune.org</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Srushti Waman | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
